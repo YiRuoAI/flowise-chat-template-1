@@ -1,0 +1,30 @@
+#!/usr/bin/env sh
+export HUSKY_DEBUG=1
+. "$(dirname -- "$0")/_/husky.sh"
+
+# 获取当前提交的 commit msg
+commit_msg=`cat $1`
+# 去掉尾部空行的消息
+commit_msg_trim=`sed -e :a -e '/^\n*$/{$d;N;};/\n$/ba' $1`
+
+# 消息校验
+msg_re="^(feat|fix|chore|ci|other)(\(.+\))?(:|\b).{1,100}"
+# 合并消息校验
+merge_re="^Merge branch '.+' into .+"
+
+if [[ ! $commit_msg =~ $msg_re ]] && [[ ! $commit_msg_trim =~ $merge_re ]]
+then
+	echo $commit_msg
+	echo "不合法的 commit 消息提交格式，请使用正确的格式:"
+  echo "比如：git commit -m \"feat: add xxx\""
+	echo ""
+	echo "feat:        新功能（feature）【发布时1.0.0会变成2.0.0】"
+	echo "chore:       普通改动【发布时1.0.0会变成1.1.0】"
+	echo "fix:         修补bug【发布时1.0.0会变成1.0.1】"
+	echo "ci:          自动化部署【不会触发版本号更新】"
+	echo "merge:       合并分支【不会触发版本号更新】"
+	echo "other:       其他修改包括脚本修改等等【不会触发版本号更新】"
+	echo ""
+	# 异常退出
+	exit 1
+fi

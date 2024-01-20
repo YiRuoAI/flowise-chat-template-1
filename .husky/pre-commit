@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+export HUSKY_DEBUG=1
+. "$(dirname -- "$0")/_/husky.sh"
+
+yarn lint-staged
