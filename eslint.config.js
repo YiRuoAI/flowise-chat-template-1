@@ -5,23 +5,13 @@ const compat = new FlatCompat({
   recommendedConfig: [
     'eslint:recommended',
     'plugin:markdown/recommended',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    'plugin:react-hooks/recommended',
-    'plugin:jsx-a11y/recommended',
   ],
 })
 
 export default antfu(
   {
-    settings: {
-      react: {
-        version: 'detect',
-      },
-
-    },
     typescript: true,
-    react: true,
+    vue: true,
   },
   ...compat.config({
     plugins: ['simple-import-sort'],
@@ -66,6 +56,7 @@ export default antfu(
       'style/indent': ['error', 2],
       'jsonc/sort-array-values': 'off',
       'array-callback-return': 'off',
+      'vue/html-self-closing': 'off',
     },
   },
 )

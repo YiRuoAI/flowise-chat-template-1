@@ -1,13 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        html {
+            font-size: calc(100 / 2560 * 100vw);
+        }
+        @media screen and (max-aspect-ratio: 4/5) {
+            html {
+                font-size: calc(100 / 750 * 100vw);
+            }
+        }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="app"></div>
+    <div id="toast"></div>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

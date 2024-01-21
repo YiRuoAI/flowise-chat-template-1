@@ -1,0 +1,215 @@
+.fade {
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+    }
+    &-enter-active,
+    &-leave-active {
+        transition: all .5s;
+    }
+}
+
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateZ(0);
+    }
+}
+
+@keyframes fadeInUpReverse {
+    0% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateZ(0);
+    }
+}
+
+
+@keyframes inFromLeft {
+    from {
+        opacity: 0;
+        transform: translate(-20%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+@keyframes outToLeft {
+    from {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-20%, 0);
+    }
+}
+
+@keyframes inFromLeftBig {
+    from {
+        opacity: 0;
+        transform: translate(-100vw, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+@keyframes outToLeftBig {
+    from {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-100vw, 0);
+    }
+}
+
+@keyframes inFromLeft-rotate180 {
+    from {
+        opacity: 0;
+        transform: translate(-20%, 0) rotate(180deg);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0) rotate(180deg);
+    }
+}
+@keyframes outToLeft-rotate180 {
+    from {
+        opacity: 1;
+        transform: translate(0, 0) rotate(180deg);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-20%, 0) rotate(180deg);
+    }
+}
+
+@keyframes inFromRight {
+    from {
+        opacity: 0;
+        transform: translate(20%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+@keyframes outToRight {
+    from {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate(20%, 0);
+    }
+}
+
+@keyframes inFromRightBig {
+    from {
+        opacity: 0;
+        transform: translate(100vw, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+@keyframes outToRightBig {
+    from {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate(100vw, 0);
+    }
+}
+
+@keyframes inFromBottom {
+    from {
+        opacity: 0;
+        transform: translate(0, 20%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+@keyframes outToBottom {
+    from {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate(0, 20%);
+    }
+}
+
+@keyframes inFromTopBig {
+    0% {
+        opacity: 0;
+        transform: translate(0, -100vh);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes inFromTop {
+    from {
+        opacity: 0;
+        transform: translate(0, -20%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+@keyframes outToTop {
+    from {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate(0, -20%);
+    }
+}
