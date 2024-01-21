@@ -99,7 +99,6 @@ function showDetail(source: string) {
     }
     > .info-box {
       .p-r();
-      background-color: #A9EA7A;
       padding: 8px 10px;
       border-radius: 8px;
       .flex-column();
@@ -142,13 +141,15 @@ function showDetail(source: string) {
     &.user-message {
       flex-direction: row-reverse;
       > .info-box {
-        margin-left: 10px;
+        background-color: #A9EA7A;
+        margin-left: 50px;
         border-bottom-right-radius: 0px;
       }
     }
     &.ai-message {
       > .info-box {
-        margin-right: 10px;
+        background-color: #FFFFFF;
+        margin-right: 50px;
         border-bottom-left-radius: 0px;
       }
     }
