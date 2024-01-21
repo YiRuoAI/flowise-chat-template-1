@@ -5,6 +5,7 @@ import apis from '@/apis'
 import { Toast } from '@/components/toast/Toast'
 import { db } from '@/db'
 
+import { useChatStore } from './chat'
 import { useChatflowStore } from './chatflow'
 
 export const useUserStore = defineStore('user', () => {
@@ -15,6 +16,7 @@ export const useUserStore = defineStore('user', () => {
   })
 
   const chatflow = useChatflowStore()
+  const chat = useChatStore()
 
   async function init() {
     const cacheUser = await db.table('users').where('chatflowId').equals(chatflow.chatflowId).first()
@@ -35,8 +37,10 @@ export const useUserStore = defineStore('user', () => {
     }).catch((err) => {
       Toast(err)
     })
+    chat.clear()
     if (res?.result) {
       user.verifySuccess = true
+      chat.init()
       const cacheUser = await db.table('users').where('chatflowId').equals(chatflow.chatflowId).first()
       if (cacheUser) {
         await db.table('users').where('chatflowId').equals(chatflow.chatflowId).modify({

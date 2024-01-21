@@ -56,6 +56,7 @@ else {
   background-color: rgba(255, 255, 255, 0.5); // Semi-transparent white
   backdrop-filter: blur(10px); // Apply blur effect
   animation: fadeIn .3s ease-in-out; // Apply fade in effect
+  z-index: 9999;
   .form-card {
     position: absolute;
     left: 50%;
