@@ -5,11 +5,11 @@ const envConfig: Record<string, Record<string, string>> = {
   },
   dev: {
     BASE: 'https://open-dev.yiruocloud.com/web/chatflow/tpl1/',
-    API_HOST: 'http://localhost:3002',
+    API_HOST: 'https://apidev2.allaihub.chat/yiruoflow',
   },
   production: {
     BASE: 'https://open.yiruocloud.com/web/chatflow/tpl1/',
-    API_HOST: '',
+    API_HOST: 'https://api.yiruocloud.com/yiruoflow',
   },
 }
 
