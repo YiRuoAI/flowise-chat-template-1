@@ -1,10 +1,14 @@
 const envConfig: Record<string, Record<string, string>> = {
-  dev: {
+  local: {
     BASE: '/',
     API_HOST: 'http://localhost:3002',
   },
+  dev: {
+    BASE: 'https://open-dev.yiruocloud.com/web/chatflow/tpl1/',
+    API_HOST: 'http://localhost:3002',
+  },
   production: {
-    BASE: '/',
+    BASE: 'https://open.yiruocloud.com/web/chatflow/tpl1/',
     API_HOST: '',
   },
 }

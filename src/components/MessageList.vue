@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { UserOutlined } from '@ant-design/icons-vue'
+import { CopyOutlined, UserOutlined } from '@ant-design/icons-vue'
 import { useChatStore } from '@stores/chat'
-import { Modal } from 'ant-design-vue'
+import { message as Message, Modal } from 'ant-design-vue'
 import hljs from 'highlight.js'
 import { Marked } from 'marked'
 import { markedHighlight } from 'marked-highlight'
@@ -31,6 +31,11 @@ function showDetail(source: string) {
     content: source,
     okText: '确认',
   })
+}
+
+async function copyText(text: string) {
+  await navigator.clipboard.writeText(text)
+  Message.success('复制成功')
 }
 </script>
 
@@ -64,6 +69,7 @@ function showDetail(source: string) {
             {{ sourceDocument.pageContent }}
           </div>
         </div>
+        <CopyOutlined class="copy-icon" @click="copyText(message.content)" />
       </div>
     </div>
     <div v-if="chatStore.currentMessageList.length === 0" class="empty-view">
@@ -104,6 +110,17 @@ function showDetail(source: string) {
       .flex-column();
       justify-content: flex-start;
       align-items: flex-start;
+      > .copy-icon {
+        .p-a();
+        bottom: 0;
+        right: 0;
+        transform: translate(120%, -20%);
+        color: #AAAAAA;
+        cursor: pointer;
+        &:hover {
+          color: #393939;
+        }
+      }
       > .info {
         .p-r();
         color: #393939;
@@ -133,24 +150,27 @@ function showDetail(source: string) {
       }
 
     }
-    &.is-error {
-      > .info-box {
-        background-color: #F5A9A9;
-      }
-    }
     &.user-message {
       flex-direction: row-reverse;
       > .info-box {
         background-color: #A9EA7A;
         margin-left: 50px;
         border-bottom-right-radius: 0px;
+        > .copy-icon {
+          display: none;
+        }
       }
     }
     &.ai-message {
       > .info-box {
         background-color: #FFFFFF;
-        margin-right: 50px;
+        margin-right: 150px;
         border-bottom-left-radius: 0px;
+      }
+    }
+    &.is-error {
+      > .info-box {
+        background-color: #F5A9A9;
       }
     }
   }

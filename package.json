@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env runEnv=dev vite",
-    "build": "run-p type-check \"build-only {@}\" --",
-    "build-only": "cross-env runEnv=production vite build",
+    "dev": "cross-env runEnv=local vite",
+    "build:dev": "cross-env runEnv=dev run-p type-check \"build-only {@}\" --",
+    "build:production": "cross-env runEnv=production run-p type-check \"build-only {@}\" --",
+    "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint \"**/*.{js,vue,ts,json,md}\"",
     "lint-fix": "yarn lint --fix",

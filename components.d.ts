@@ -10,7 +10,6 @@ declare module 'vue' {
     AAvatar: typeof import('ant-design-vue/es')['Avatar']
     AEmpty: typeof import('ant-design-vue/es')['Empty']
     AInput: typeof import('ant-design-vue/es')['Input']
-    AInputSearch: typeof import('ant-design-vue/es')['InputSearch']
     ATextarea: typeof import('ant-design-vue/es')['Textarea']
     ConversationList: typeof import('./src/components/ConversationList.vue')['default']
     MessageList: typeof import('./src/components/MessageList.vue')['default']

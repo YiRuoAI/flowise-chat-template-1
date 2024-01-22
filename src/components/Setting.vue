@@ -7,8 +7,9 @@ import { Loading } from './toast/Toast'
 const userStore = useUserStore()
 const chatflowStore = useChatflowStore()
 const searchParams = new URLSearchParams(window.location.search)
-const id = searchParams.get('id')
-if (!id) {
+const windowChatflowId = window.chatflowId
+const id = searchParams.get('id') || windowChatflowId
+if (!id || id === 'CHATFLOW_ID') {
   Loading('缺少 chatflow id')
 }
 else {
