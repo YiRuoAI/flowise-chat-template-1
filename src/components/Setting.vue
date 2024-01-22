@@ -8,12 +8,14 @@ const userStore = useUserStore()
 const chatflowStore = useChatflowStore()
 const searchParams = new URLSearchParams(window.location.search)
 const windowChatflowId = window.chatflowId
+const chatflowUrlKey = window.chatflowUrlKey
 const id = searchParams.get('id') || windowChatflowId
-if (!id || id === 'CHATFLOW_ID') {
-  Loading('缺少 chatflow id')
+if (!id || id === 'CHATFLOW_ID' || !chatflowUrlKey) {
+  Loading('缺少 chatflow id 或 chatflow url key')
 }
 else {
   chatflowStore.chatflowId = id
+  chatflowStore.chatflowUrlKey = chatflowUrlKey
   userStore.init()
 }
 </script>
