@@ -48,7 +48,7 @@ jobs:
         run: pnpm install
 
       - name: Build
-        run: pnpm pro
+        run: pnpm build:production
 
       - name: upload files to OSS
         uses: Allaihub/aliyun-oss-website-action@master

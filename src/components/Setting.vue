@@ -7,12 +7,15 @@ import { Loading } from './toast/Toast'
 const userStore = useUserStore()
 const chatflowStore = useChatflowStore()
 const searchParams = new URLSearchParams(window.location.search)
-const id = searchParams.get('id')
-if (!id) {
-  Loading('缺少 chatflow id')
+const windowChatflowId = window.chatflowId
+const chatflowUrlKey = window.chatflowUrlKey
+const id = searchParams.get('id') || windowChatflowId
+if (!id || id === 'CHATFLOW_ID' || !chatflowUrlKey) {
+  Loading('缺少 chatflow id 或 chatflow url key')
 }
 else {
   chatflowStore.chatflowId = id
+  chatflowStore.chatflowUrlKey = chatflowUrlKey
   userStore.init()
 }
 </script>
@@ -56,6 +59,7 @@ else {
   background-color: rgba(255, 255, 255, 0.5); // Semi-transparent white
   backdrop-filter: blur(10px); // Apply blur effect
   animation: fadeIn .3s ease-in-out; // Apply fade in effect
+  z-index: 9999;
   .form-card {
     position: absolute;
     left: 50%;
