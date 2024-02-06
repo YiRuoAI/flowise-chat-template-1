@@ -8,9 +8,10 @@ const userStore = useUserStore()
 const chatflowStore = useChatflowStore()
 const searchParams = new URLSearchParams(window.location.search)
 const windowChatflowId = window.chatflowId
-const chatflowUrlKey = window.chatflowUrlKey
+const windowChatflowUrlKey = window.chatflowUrlKey
 const id = searchParams.get('id') || windowChatflowId
-if (!id || id === 'CHATFLOW_ID' || !chatflowUrlKey) {
+const chatflowUrlKey = searchParams.get('urlKey') || windowChatflowUrlKey
+if (!id || !chatflowUrlKey) {
   Loading('缺少 chatflow id 或 chatflow url key')
 }
 else {
@@ -56,8 +57,8 @@ else {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.5); // Semi-transparent white
-  backdrop-filter: blur(10px); // Apply blur effect
+  background-color: rgba(255, 255, 255, 0.2); // Semi-transparent white
+  backdrop-filter: blur(5px); // Apply blur effect
   animation: fadeIn .3s ease-in-out; // Apply fade in effect
   z-index: 9999;
   .form-card {
