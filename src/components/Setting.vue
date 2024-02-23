@@ -25,7 +25,7 @@ else {
   <div v-if="!userStore.user.verifySuccess" class="setting-page">
     <form class="form-card">
       <div class="title">
-        设置账号密码
+        登录
       </div>
       <input
         v-model="userStore.user.username"
@@ -44,7 +44,7 @@ else {
       <div
         class="save-button" @click="userStore.verifyUser"
       >
-        保存
+        确定
       </div>
     </form>
   </div>

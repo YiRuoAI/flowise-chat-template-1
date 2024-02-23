@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { CommentOutlined, DeleteOutlined, EditOutlined } from '@ant-design/icons-vue'
+import { CommentOutlined, DeleteOutlined } from '@ant-design/icons-vue'
 import { Modal } from 'ant-design-vue'
 
 import type { Conversation } from '@/db'
@@ -20,9 +20,9 @@ function deleteConversation(conversation: Conversation) {
   })
 }
 
-function editConversation(conversation: Conversation) {
-  
-}
+// function editConversation(conversation: Conversation) {
+
+// }
 
 function selectConversation(conversation: Conversation) {
   chatStore.selectConversation(conversation)
@@ -40,7 +40,7 @@ function selectConversation(conversation: Conversation) {
       <div class="title" @click="selectConversation(conversation)">
         {{ conversation.title }}
       </div>
-      <EditOutlined class="icon btn" @click="editConversation(conversation)" />
+      <!-- <EditOutlined class="icon btn" @click="editConversation(conversation)" /> -->
       <DeleteOutlined class="icon btn" @click="deleteConversation(conversation)" />
     </div>
     <a-empty v-if="chatStore.conversationList.length === 0" />
