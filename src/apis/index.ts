@@ -12,9 +12,9 @@ const authRequest = async <T>(method: Method, url: string, opts?: AxiosParams) =
   const { user } = useUserStore()
   const { chatflowId, chatflowUrlKey } = useChatflowStore()
   options.headers.chatflowid = chatflowId
-  options.headers.chatflow_url_key = chatflowUrlKey
-  options.headers.chatflow_username = user.username
-  options.headers.chatflow_password = user.password
+  options.headers.chatflow_url_key = encodeURIComponent(chatflowUrlKey)
+  options.headers.chatflow_username = encodeURIComponent(user.username)
+  options.headers.chatflow_password = encodeURIComponent(user.password)
   return request<T>(method, url, options)
 }
 

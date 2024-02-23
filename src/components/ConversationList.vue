@@ -20,9 +20,9 @@ function deleteConversation(conversation: Conversation) {
   })
 }
 
-function editConversation(conversation: Conversation) {
-  
-}
+// function editConversation(conversation: Conversation) {
+
+// }
 
 function selectConversation(conversation: Conversation) {
   chatStore.selectConversation(conversation)
